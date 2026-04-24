@@ -25,6 +25,13 @@ Basic usage:
     >>> result = m.identify_bytes(b"# Hello\nprint('world')")
     >>> print(result.output.ct_label)
     'python'
+
+Batch usage:
+    >>> from magika import Magika
+    >>> m = Magika()
+    >>> results = m.identify_paths([Path("file1.py"), Path("file2.js")])
+    >>> for result in results:
+    ...     print(result.path, result.output.ct_label)
 """
 
 from magika.magika import Magika
