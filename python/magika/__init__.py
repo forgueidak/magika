@@ -32,6 +32,9 @@ Batch usage:
     >>> results = m.identify_paths([Path("file1.py"), Path("file2.js")])
     >>> for result in results:
     ...     print(result.path, result.output.ct_label)
+
+Note: MagikaResult also exposes result.output.mime_type and
+result.output.group for richer metadata about the detected file type.
 """
 
 from magika.magika import Magika
