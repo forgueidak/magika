@@ -38,6 +38,10 @@ result.output.group for richer metadata about the detected file type.
 
 Additionally, result.output.score gives the model's confidence (0.0-1.0),
 which can be useful for filtering low-confidence predictions.
+
+See also:
+    - Project repository: https://github.com/google/magika
+    - Supported content types: https://google.github.io/magika/doc/supported-content-types
 """
 
 from magika.magika import Magika
