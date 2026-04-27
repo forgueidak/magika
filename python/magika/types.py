@@ -79,6 +79,14 @@ class MagikaResult:
         """Return True if the detection completed without errors."""
         return self.status == MagikaStatus.OK
 
+    def is_high_confidence(self, threshold: float = 0.9) -> bool:
+        """Return True if the detection score meets the given confidence threshold.
+
+        Useful for filtering results where you only want reliable detections.
+        Default threshold of 0.9 works well in practice for most use cases.
+        """
+        return self.ok() and self.score >= threshold
+
     def __str__(self) -> str:
         path_str = str(self.path) if self.path else "<bytes>"
         return (
@@ -99,16 +107,4 @@ class ModelConfig:
     """Number of bytes to sample from the middle of the file."""
 
     end_size: int
-    """Number of bytes to sample from the end of the file."""
-
-    use_inputs_at_offsets: bool
-    """Whether the model uses inputs sampled at specific offsets."""
-
-    medium_confidence_threshold: float
-    """Score threshold below which a result is considered medium confidence."""
-
-    min_file_size_for_dl: int
-    """Minimum file size in bytes required to use the deep learning model."""
-
-    padding_token: int = 256
-    """Token value used to pad input sequences shorter than the required size."""
+    """Number of b
