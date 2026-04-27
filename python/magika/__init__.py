@@ -35,6 +35,9 @@ Batch usage:
 
 Note: MagikaResult also exposes result.output.mime_type and
 result.output.group for richer metadata about the detected file type.
+
+Additionally, result.output.score gives the model's confidence (0.0-1.0),
+which can be useful for filtering low-confidence predictions.
 """
 
 from magika.magika import Magika
