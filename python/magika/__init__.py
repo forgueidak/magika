@@ -60,8 +60,13 @@ __version__ = "0.6.0"
 __author__ = "Google LLC"
 __license__ = "Apache-2.0"
 
+# Personal fork note: added ContentType to public API for easier label lookups
+# without needing to dig into magika.types directly.
+from magika.types import ContentType
+
 __all__ = [
     "Magika",
+    "ContentType",
     "MagikaResult",
     "MagikaOutputFields",
     "ModelFeatures",
